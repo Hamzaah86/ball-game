@@ -8,9 +8,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blanchedalmond;
+    background-color: beige;
 }
 
 .container {
     padding: 25px calc((100vw - 960px) / 2);
+}
+
+.score {
+    display: flex;
+    align-self: flex-start;
+    padding: 15px;
+}
+
+.ball {
+    padding-top: 20px;
 }

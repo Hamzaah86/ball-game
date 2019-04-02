@@ -7,3 +7,11 @@ function setup() {
 function draw() {
     game.draw();
 }
+
+function keyPressed() {
+    game.keyPressed();
+}
+
+/*function ballMoving() {
+    game.ballMoving();
+}*/
