@@ -3,44 +3,56 @@ class Ball {
         this.xspeed = 2;
         this.yspeed = 2;
         this.ballMoving = false;
-        this.ballSpeed;
-        this.gameOver;
+        this.gameOver = false;
         this.ballRadius = 35;
-        // this.interval = setInterval(draw, 1000);
+        this.score = 0;
     }
 
     setup() {
-        this.x = 0;
-        this.y = 0;
+        this.x = width / 2;
+        this.y = height / 2;
     }
-    draw(paddleX, paddleWidth) {
+
+    draw(paddleHeight, paddleY) {
         this.x = this.x + this.xspeed;
         this.y = this.y + this.yspeed;
 
         if (this.x > width || this.x < 0) {
-            this.xspeed = this.xspeed * -1;
+            this.gameOver = true;
+            clearInterval();
+            textSize(32);
+            text('GAME OVER :(', 150, 150);
+            fill(0, 102, 153);
         }
-        if (this.y < 0) {
-            this.yspeed = this.yspeed * -1;
+        if (this.x > width - 40) {
+            //if (this.y > paddleHeight && this.y < paddleHeight + paddleY && this.x < width) {
+            //    this.xspeed = -this.xspeed;
+            //    this.score++;
+            //    document.querySelector('.score').innerHTML = `Score:${this.score}`;
+            //  }
+            // this.xspeed = -this.xspeed;
         }
 
-        if (this.y > height - 40) {
-            if (this.x > paddleX && this.x < paddleX + paddleWidth) {
-                this.yspeed = -this.yspeed;
-            } else {
-                console.log('die');
+        if (this.x - 40 < 0) {
+            if (this.y > paddleY && this.y < paddleHeight + paddleY && this.x > 0) {
+                this.xspeed = -this.xspeed;
+                this.score++;
             }
         }
 
-        /*if (this.y >= 330 && this.y >= Ball.length) {
-            this.yspeed = yspeed - 1;
-        }*/
+        if (this.y + this.ballRadius / 2 > height) {
+            this.yspeed = -this.yspeed;
+        }
 
-        stroke(120, 230, 200);
+        if (this.y - this.ballRadius / 2 < 0) {
+            this.yspeed = -this.yspeed;
+        }
+
+        stroke(250, 130, 200);
         strokeWeight(1);
-        fill(120);
+        fill(255, 100, 100);
         ellipse(this.x, this.y, this.ballRadius, this.ballRadius);
-    }
 
-    update() {}
+        // update() {
+    }
 }
