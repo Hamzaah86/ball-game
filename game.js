@@ -13,8 +13,8 @@ class Game {
     }
 
     draw() {
-        background(110, 100, 255);
-        this.ball.draw(80, mouseY);
+        background(100, 111, 230);
+        this.ball.draw(80, mouseY, 80, this.y);
         fill(0);
         if (mouseY + 80 <= height && mouseY >= 0) {
             rect(10, mouseY, 10, 80);
@@ -30,9 +30,9 @@ class Game {
 
     movePaddle() {
         if (keyIsDown(UP_ARROW)) {
-            this.y = this.y - 10;
+            if (this.y > 0) this.y = this.y - 10;
         } else if (keyIsDown(DOWN_ARROW)) {
-            this.y = this.y + 10;
+            if (this.y + 80 < height) this.y = this.y + 10;
         }
     }
 }

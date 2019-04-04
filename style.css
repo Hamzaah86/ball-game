@@ -9,18 +9,21 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: beige;
-    /*background-image: url('https://image.shutterstock.com/z/stock-photo-table-tennis-or-ping-pong-racket-tournament-poster-design-on-abstract-color-rounded-circles-1099303010.jpg');*/
+    background-image: url('https://image.shutterstock.com/z/stock-vector-set-of-playing-rackets-for-ping-pong-icon-744581146.jpg');
 }
 
 .container {
     padding: 25px calc((100vw - 960px) / 2);
 }
 
-.score {
+.wrapper {
     display: flex;
-    align-self: flex-start;
-    padding: 15px;
-    color: aliceblue;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.wrapper h1 {
+    color: black;
 }
 
 .ball {
