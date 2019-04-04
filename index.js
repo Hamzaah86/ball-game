@@ -8,4 +8,6 @@ function draw() {
     game.draw();
 }
 
-function loadSound() {}
+/*function preload() {
+    impact = loadSound('./hit-hole-2.hit-hole.wav');
+}*/

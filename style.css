@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: beige;
-    background-image: url('https://image.shutterstock.com/z/stock-vector-set-of-playing-rackets-for-ping-pong-icon-744581146.jpg');
+    background-image: url('https://image.shutterstock.com/z/stock-photo-abstract-grunge-sports-object-background-with-space-106079624.jpg');
 }
 
 .container {
@@ -23,9 +23,10 @@ body {
 }
 
 .wrapper h1 {
-    color: black;
+    color: white;
 }
 
 .ball {
     padding-top: 20px;
+    color: white;
 }

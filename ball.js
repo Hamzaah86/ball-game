@@ -1,7 +1,7 @@
 class Ball {
     constructor() {
-        this.xspeed = 3;
-        this.yspeed = 3;
+        this.xspeed = 4;
+        this.yspeed = 4;
         this.ballMoving = false;
         this.gameOver = false;
         this.ballRadius = 35;
@@ -22,28 +22,34 @@ class Ball {
             if (this.y > paddleY && this.y < paddleHeight + paddleY && this.x > 0) {
                 this.xspeed = -this.xspeed;
             }
-            if (this.x === 0 - 1) {
+            if (this.x < 0 - 40) {
                 this.score2++;
-                this.x = 200;
-                this.y = 50;
+                this.x = this.radomNum(50, 250);
+                this.y = this.radomNum(50, 250);
                 document.querySelector('.score2').innerHTML = `Score2:${this.score2}`;
             }
         }
 
         if (this.x + 40 > width) {
+            /* When hits the paddle */
             if (this.y > paddle2Y && this.y < paddle2Height + paddle2Y && this.x < width) {
                 this.xspeed = -this.xspeed;
             }
-            if (this.x === width + 1) {
+            if (this.x > 640) {
                 this.score1++;
-                this.x = 200;
-                this.y = 50;
+                //this.impact.play();
+                this.x = this.radomNum(50, 250);
+                this.y = this.radomNum(50, 250);
                 document.querySelector('.score1').innerHTML = `Score1:${this.score1}`;
-                if (this.score1 >= 5 && this.score2 >= 5) this.gameOver = true;
-                clearInterval();
-                text('GAME OVER :(', 10, 90);
-                fill(0, 102, 153, 51);
             }
+        }
+        if (this.score1 >= 5 || this.score2 >= 5) {
+            this.gameOver = true;
+        }
+        if (this.gameOver === true) {
+            noLoop();
+            textSize(32);
+            text('GAME OVER :(', 180, 150);
         }
 
         if (this.y + this.ballRadius / 2 > height) {
@@ -62,6 +68,7 @@ class Ball {
         // update() {
     }
     radomNum(min, max) {
-        return Math.floor(Math.random() * 20) + 100;
+        console.log('creating random number', Math.floor(Math.random() * (max - min)) + min);
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 }
