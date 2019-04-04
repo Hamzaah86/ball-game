@@ -1,7 +1,7 @@
 class Ball {
     constructor() {
         this.xspeed = 2;
-        this.yspeed = 2;
+        this.yspeed = 0;
         this.ballMoving = false;
         this.gameOver = false;
         this.ballRadius = 35;
@@ -13,7 +13,7 @@ class Ball {
         this.y = height / 2;
     }
 
-    draw(paddleHeight, paddleY) {
+    draw(paddleHeight, paddleY, paddle2Height, paddle2Y) {
         this.x = this.x + this.xspeed;
         this.y = this.y + this.yspeed;
 
@@ -33,8 +33,15 @@ class Ball {
             // this.xspeed = -this.xspeed;
         }
 
-        if (this.x - 40 < 0) {
+        if (this.x - 40 > 0) {
             if (this.y > paddleY && this.y < paddleHeight + paddleY && this.x > 0) {
+                this.xspeed = -this.xspeed;
+                this.score++;
+            }
+        }
+
+        if (this.x - 40 > 640) {
+            if (this.y < paddle2Y && this.y < paddle2Height + paddle2Y && this.x > 640) {
                 this.xspeed = -this.xspeed;
                 this.score++;
             }

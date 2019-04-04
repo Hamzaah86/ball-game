@@ -1,7 +1,5 @@
 class Game {
     constructor() {
-        this.x = 300;
-        this.y = 330;
         this.ball = new Ball();
         this.keyIsDown = 0;
     }
@@ -10,6 +8,8 @@ class Game {
         createCanvas(640, 360);
         frameRate(50);
         this.ball.setup();
+        this.x = width - 20;
+        this.y = 0;
     }
 
     draw() {
@@ -24,19 +24,15 @@ class Game {
             rect(10, 0, 10, 80);
         }
 
-        if (mouseY + 80 <= height && mouseY >= 0) {
-            rect(width - 20, mouseY, 10, 80);
-        } else if (mouseY + 80 > height) {
-            rect(width - 20, height - 80, 10, 80);
-        } else if (mouseY < 0) {
-            rect(width - 20, 0, 10, 80);
-        }
+        rect(this.x, this.y, 10, 80);
+        this.movePaddle();
+    }
 
-        /*keyPressed() {
-    if (keyIsDown(LEFT_ARROW) {
-        this.x = this.x - 3;
-    } else if (keyCode === RIGHT_ARROW) {
-        this.x = this.x + 3;
-    }*/
+    movePaddle() {
+        if (keyIsDown(UP_ARROW)) {
+            this.y = this.y - 10;
+        } else if (keyIsDown(DOWN_ARROW)) {
+            this.y = this.y + 10;
+        }
     }
 }
