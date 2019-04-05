@@ -43,13 +43,18 @@ class Ball {
                 document.querySelector('.score1').innerHTML = `Score1:${this.score1}`;
             }
         }
-        if (this.score1 >= 5 || this.score2 >= 5) {
+        if (this.score1 >= 2 || this.score2 >= 2) {
             this.gameOver = true;
         }
         if (this.gameOver === true) {
+            // textSize(32);
+            // textfont(Audiowide);
+            // text('GAME OVER :(', 180, 150);
+            textFont('Dokdo');
+            textSize(width / 15);
+            textAlign(0, CENTER);
+            text('GAME OVER :(', 170, 150);
             noLoop();
-            textSize(32);
-            text('GAME OVER :(', 180, 150);
         }
 
         if (this.y + this.ballRadius / 2 > height) {
