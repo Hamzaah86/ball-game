@@ -43,7 +43,7 @@ class Ball {
                 document.querySelector('.score1').innerHTML = `Score1:${this.score1}`;
             }
         }
-        if (this.score1 >= 2 || this.score2 >= 2) {
+        if (this.score1 >= 4 || this.score2 >= 4) {
             this.gameOver = true;
         }
         if (this.gameOver === true) {
